@@ -23,4 +23,18 @@ export class UserService{
         // Hacer peticion ajax
         return this._http.post(this.url+'register', params,{headers: headers});
     }
+
+    signup (user, gettoken = null):Observable<any>{
+        //comprobar si llega el gettoken
+        if(gettoken !=null){
+            user.gettoken = gettoken;
+        }
+
+         // Convertir el objeto del usuario a un json string
+        let params = JSON.stringify(user);
+        // Definir las cabeceras
+        let headers = new HttpHeaders().set('Content-Type', 'Application/json');
+
+        return this._http.post(this.url+'login', params,{headers: headers});
+    }
 }
