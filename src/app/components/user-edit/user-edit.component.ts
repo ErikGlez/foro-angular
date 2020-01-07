@@ -62,7 +62,7 @@ export class UserEditComponent implements OnInit {
   avatarUpload(data){
     let data_obj = JSON.parse(data.response);
     this.user.image= data_obj.user.image;
-    console.log(this.user);
+    
   }
 
   onSubmit(){
