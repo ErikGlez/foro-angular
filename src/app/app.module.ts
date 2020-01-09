@@ -5,10 +5,14 @@ import { routing, appRoutingProviders } from './app.routing';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFileUploaderModule } from 'angular-file-uploader';
 import { AppComponent } from './app.component';
+
+import { PanelModule } from './panel/panel.module';
+
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +27,8 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
     routing,
     FormsModule,
     HttpClientModule,
-    AngularFileUploaderModule
+    AngularFileUploaderModule,
+    PanelModule
   ],
   providers: [
     appRoutingProviders
