@@ -19,6 +19,20 @@
         
     </ul>
     <div class="clearfix"></div>
+    
     <!-- Navegacion de paginacion -->
+    
+        <ul class="pagination mt-4">
+          <li class="page-item">
+              <a class="page-link" [routerLink]="['/temas',prev_page]">&laquo;</a>
+            </li>
+          <li class="page-item" *ngFor="let num of number_pages">
+              <a class="page-link" [routerLink]="['/temas',num]">{{num}}</a>
+            
+          </li>
+          
+          <li class="page-item"><a class="page-link" [routerLink]="['/temas',next_page]">&raquo;</a></li>
+        </ul>
+      
 
 </div>
