@@ -50,4 +50,6 @@ export class TopicService{
         return this._http.get(this.url+'topics/'+page);
     }
 
+    
+
 }
