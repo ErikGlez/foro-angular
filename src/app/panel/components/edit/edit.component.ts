@@ -16,6 +16,7 @@ export class EditComponent implements OnInit {
   public identity;
   public token;
   public status;
+  public is_edit;
 
   constructor(
     private _userService: UserService,
@@ -29,6 +30,7 @@ export class EditComponent implements OnInit {
       this.identity = this._userService.getIdentity();
       this.token = this._userService.getToken();
       this.topic = new Topic('','','','','','',this.identity._id, null );
+      this.is_edit = true;
    }
  
 
@@ -54,4 +56,24 @@ export class EditComponent implements OnInit {
     });
   }
 
+  onSubmit(form){
+    var id = this.topic._id;
+    this._topicService.update(this.token, id, this.topic).subscribe(
+       response =>{
+        if(response.topic){
+          this.status= 'success';
+          this.topic = response.topic;
+
+        }else{
+          this.status = 'error'; 
+        }
+      },
+      error =>{
+        this.status = 'error';
+        console.log(<any>error);
+      }
+    );
+
+
+  }
 }
