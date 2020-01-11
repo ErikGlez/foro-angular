@@ -15,7 +15,7 @@
                 <td>{{topic.title}}</td>
                 <td>{{topic.date | amLocale:'es'| amDateFormat:'LL'}}</td>
                 <td>
-                    <a href="#" class="btn btn-sm btn-warning mr-2">Editar</a>
+                    <a [routerLink]="['/panel/editar',topic._id]" class="btn btn-sm btn-warning mr-2">Editar</a>
                     <a href="#" class="btn btn-sm btn-danger">Borrar</a>
                 </td>
             </tr>
