@@ -53,15 +53,20 @@
         <!-- Lista de comentarios -->
         <ul class="list-group list-comments mb-5">
             <li class="list-group-item comment-item" *ngFor="let comment of topic.comments">
-                
-                <span class="badge badge-primary ml-2">
+                <div  class="avatar_mask float-left mr-3">
+                    <img src="{{ url + 'avatar/'+ comment.user.image }}" class="avatar_nav" alt="avatar de usuario">
+                </div>
+                <span class="badge badge-primary">
                     {{comment.user.name + ' ' + comment.user.surname}}
                 </span>
                 <span class="badge badge-light ml-2">
                     {{comment.date | amLocale: 'es' | amTimeAgo }}
                 </span>
-                <div class="clearfix"></div>
-                {{comment.content}}
+                <span class="d-block">
+                    {{comment.content}}
+                </span>
+                <button (click)="deleteComment(comment._id)" class="btn btn-sm btn-danger float-right" *ngIf="identity._id == comment.user._id">Borrar</button>
+                
                 
             </li>
             

@@ -8,6 +8,8 @@ import { Comment } from '../../models/commet';
 import { CommentService } from '../../services/comment.service';
 import { UserService } from '../../services/user.service';
 
+import  { global } from '../../services/global';
+
 
 @Component({
   selector: 'app-topic-detail',
@@ -22,6 +24,7 @@ export class TopicDetailComponent implements OnInit {
   public identity;
   public token;
   public status;
+  public url;
   
 
   constructor(
@@ -34,6 +37,7 @@ export class TopicDetailComponent implements OnInit {
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
     this.comment = new Comment('','','', this.identity._id);
+    this.url = global.url;
   }
 
 
@@ -68,6 +72,24 @@ export class TopicDetailComponent implements OnInit {
           this.status = 'success';
           this.topic = response.topic;
           form.reset();
+        }
+      },
+      error => {
+        this.status = 'error';
+        console.log(error);
+      }
+    );
+  }
+
+  deleteComment(id){
+    this._commentService.delete(this.token, this.topic._id, id).subscribe(
+      response =>{
+        if(!response.topic){
+          this.status = 'error';
+        }else{
+          this.status = 'success';
+          this.topic = response.topic;
+         
         }
       },
       error => {
