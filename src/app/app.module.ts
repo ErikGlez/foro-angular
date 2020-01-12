@@ -8,14 +8,22 @@ import { AppComponent } from './app.component';
 import { MomentModule } from 'angular2-moment';
 import { NgxHighlightJsModule } from '@nowzoo/ngx-highlight-js';
 
+// Modulos
 import { PanelModule } from './panel/panel.module';
 
+// Componentes
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { TopicsComponent } from './components/topics/topics.component';
 import { TopicDetailComponent } from './components/topic-detail/topic-detail.component';
+
+// Servicios
+import { UserService } from './services/user.service';
+import { UserGuard } from './services/user.guard';
+import { NoIdentityGuard } from './services/no.identity.guard';
+
 
 
 @NgModule({
@@ -39,7 +47,10 @@ import { TopicDetailComponent } from './components/topic-detail/topic-detail.com
     NgxHighlightJsModule.forRoot()
   ],
   providers: [
-    appRoutingProviders
+    appRoutingProviders,
+    UserService,
+    UserGuard,
+    NoIdentityGuard
   ],
   bootstrap: [AppComponent]
 })
