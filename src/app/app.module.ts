@@ -25,6 +25,7 @@ import { UserGuard } from './services/user.guard';
 import { NoIdentityGuard } from './services/no.identity.guard';
 import { UsersComponent } from './components/users/users.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { SearchComponent } from './components/search/search.component';
 
 
 
@@ -38,7 +39,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     TopicsComponent,
     TopicDetailComponent,
     UsersComponent,
-    ProfileComponent
+    ProfileComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
